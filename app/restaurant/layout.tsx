@@ -26,19 +26,16 @@ export const metadata: Metadata = {
   description: "Ресторан живого вогню — демо-сайт.",
 };
 
-export default function RootLayout({
+export default function RestaurantLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="uk"
-      className={`${playfair.variable} ${workSans.variable} ${plexMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col font-body bg-cream text-char">
+
+      <div className="min-h-full flex flex-col font-body bg-cream text-char">
         {children}
-      </body>
-    </html>
+      </div>
+ 
   );
 }
