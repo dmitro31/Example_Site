@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --color-char: #1C1512;
+  --color-cream: #F5EEE1;
+  --color-ember: #D6431B;
+  --color-wine: #6B1E2C;
+  --color-brass: #B8862E;
+  --color-herb: #5C6B47;
+  --color-linen: #EAE0CC;
+}
+
+@theme inline {
+  --color-char: var(--color-char);
+  --color-cream: var(--color-cream);
+  --color-ember: var(--color-ember);
+  --color-wine: var(--color-wine);
+  --color-brass: var(--color-brass);
+  --color-herb: var(--color-herb);
+  --color-linen: var(--color-linen);
+  --font-display: var(--font-playfair);
+  --font-body: var(--font-worksans);
+  --font-mono: var(--font-plex-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-cream);
+  color: var(--color-char);
+}
+
+::selection {
+  background-color: #D6431B;
+  color: #F5EEE1;
+}
+
+.eyebrow {
+  font-family: var(--font-plex-mono);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.7s ease-out forwards; }
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spinSlow 16s linear infinite; }
+
+@keyframes flicker {
+  0%, 100% { opacity: 0.55; transform: scaleY(1); }
+  50% { opacity: 0.9; transform: scaleY(1.12); }
+}
+.animate-flicker { animation: flicker 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
